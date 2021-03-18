@@ -76,3 +76,10 @@ use this backend unless the backend configuration changes.
 ### 1. Corrupt .terrform folder
 
 We can always delete the .terraform folder and start fresh, when the terraform init command is executed it will always create a .terraform folder locally and initialises all required modules.
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| bucket\_name | Terraform state bucket name | string | n/a | yes |
+| jenkins\_instance | Jenkins instance name | string | n/a | yes |

@@ -8,5 +8,5 @@ module "jenkins" {
   source = "github.com/global-devops-terraform/jenkins-roles?ref=v1.10.4"
 
   bucket_name      = module.terraform.bucket_name
-  jenkins_instance = "selfservice"
+  jenkins_instance = var.jenkins_instance
 }
