@@ -7,3 +7,9 @@ variable "jenkins_instance" {
   type        = string
   description = "Jenkins instance name"
 }
+
+variable "extra_jenkins_instance" {
+  type        = string
+  default     = ""
+  description = "Additional Jenkins instance name"
+}

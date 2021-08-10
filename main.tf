@@ -7,6 +7,7 @@ module "terraform" {
 module "jenkins" {
   source = "github.com/global-devops-terraform/jenkins-roles?ref=v1.14.1"
 
-  bucket_name      = module.terraform.bucket_name
-  jenkins_instance = var.jenkins_instance
+  bucket_name            = module.terraform.bucket_name
+  jenkins_instance       = var.jenkins_instance
+  extra_jenkins_instance = var.extra_jenkins_instance
 }
