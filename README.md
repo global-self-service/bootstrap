@@ -1,8 +1,8 @@
-# Self Service Bootstrap
+# Bootstrap
 We use terraform to build our infrastructure, terraform needs some pre-req to be handled before setting up and running the code using a CI server like jenkins.
 
 ## Pre-req
-1. Terraform s3 backend 
+1. Terraform s3 backend
 2. Terraform lock via dynamodb table
 3. To build and deploy via jenkins, jenkins IAM assumable roles with policies need to be in place.
 
@@ -13,7 +13,7 @@ For the first time, we need to run terraform plan and apply via our laptops usin
 **Note**: comment the terraform backend section in [this](provider.tf) file before proceeding, this will create the terrform state file locally on laptops
 
 ```
-git clone git@github.com:global-self-service/bootstrap.git
+git clone git@github.com:.../bootstrap.git
 cd bootstrap
 terraform init
 terraform plan -var-file="vars/dev.tfvars" -out plan.txt
@@ -41,12 +41,12 @@ Do you want to copy existing state to the new backend?
 Successfully configured the backend "s3"! Terraform will automatically
 use this backend unless the backend configuration changes.
 ```
-In case of multiple AWS accounts, we need to 
+In case of multiple AWS accounts, we need to
 
-1. Pass appropriate variable files in the commands aforementioned. 
-2. Overwrite the terraform backend via backend config file 
+1. Pass appropriate variable files in the commands aforementioned.
+2. Overwrite the terraform backend via backend config file
 
-For ex: 
+For ex:
 
 On Prod AWS account:
 
@@ -83,3 +83,4 @@ We can always delete the .terraform folder and start fresh, when the terraform i
 |------|-------------|:----:|:-----:|:-----:|
 | bucket\_name | Terraform state bucket name | string | n/a | yes |
 | jenkins\_instance | Jenkins instance name | string | n/a | yes |
+| extra\_jenkins\_instance | Additional Jenkins instance name | string | `""` | no |
